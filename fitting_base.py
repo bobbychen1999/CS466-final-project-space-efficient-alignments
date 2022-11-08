@@ -71,4 +71,4 @@ delta = {}
 for i in range(len(keys)):
     delta[keys[i]] = {k : v for (k,v) in zip(keys, [1 if keys[i] == keys[j]  else -1 for j in range(len(keys))])}
     
-print(fitting_align("TAGATA", "GTAGGCTTAAGGTTA", delta))
+# print(fitting_align("TAGATA", "GTAGGCTTAAGGTTA", delta))
