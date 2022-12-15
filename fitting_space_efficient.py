@@ -1,4 +1,4 @@
-import globall
+import global_space_efficient
 
 def find_start(v, w, delta, i1, j1):
     vp = v[0:i1:][::-1]
@@ -57,6 +57,6 @@ def fitting(v, w, delta):
     (i1, j1) = find_end(v, w, delta)
     (i0, j0) = find_start(v, w, delta, i1, j1)
     # print(i0, j0, i1, j1)
-    h = globall.hirschberg(v[i0:i1:], w[j0:j1:], delta)
-    a = globall.get_alignment(v[i0:i1:], w[j0:j1:], h)
+    h = global_space_efficient.hirschberg(v[i0:i1:], w[j0:j1:], delta)
+    a = global_space_efficient.get_alignment(v[i0:i1:], w[j0:j1:], h)
     return a

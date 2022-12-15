@@ -1,8 +1,8 @@
-import globall
+import global_space_efficient
 import global_base
-import fitting
+import fitting_space_efficient
 import fitting_base
-import local
+import local_space_efficient
 import local_base
 
 # generate random integer values
@@ -41,7 +41,7 @@ def test_global(n):
         v = generate_sequence(vl)
         w = generate_sequence(wl)
         (score_base, a_base) = global_base.global_align(v, w, delta)
-        (va, wa) = globall.get_alignment(v, w, globall.hirschberg(v, w, delta))
+        (va, wa) = global_space_efficient.get_alignment(v, w, global_space_efficient.hirschberg(v, w, delta))
         score = compute_score(va, wa)
         if not score == score_base:
             print(v, w, "optimal score:", score_base, "your_score:", score, va, wa)
@@ -53,7 +53,7 @@ def test_fitting(n):
         v = generate_sequence(vl)
         w = generate_sequence(wl)
         (score_base, a_base) = fitting_base.fitting_align(v, w, delta)
-        (va, wa) = fitting.fitting(v, w, delta)
+        (va, wa) = fitting_space_efficient.fitting(v, w, delta)
         score = compute_score(va, wa)
         if not score == score_base:
             print(v, w, "optimal score:", score_base, "your_score:", score)
@@ -65,7 +65,7 @@ def test_local(n):
         v = generate_sequence(vl)
         w = generate_sequence(wl)
         (score_base, a_base) = local_base.local_align(v, w, delta)
-        (va, wa) = local.local(v, w, delta)
+        (va, wa) = local_space_efficient.local(v, w, delta)
         score = compute_score(va, wa)
         if not score == score_base:
             print(v, w, "optimal score:", score_base, "your_score:", score)
